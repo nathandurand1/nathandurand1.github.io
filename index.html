@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nathan Durand &mdash; Mechanical Engineering</title>
+<meta name="description" content="Nathan Durand &mdash; Mechanical Engineering student at Iowa State University. Honeywell Aerospace intern. Project portfolio, experience, and contact.">
+<style>
+  :root {
+    --navy: #0a1f44;
+    --cardinal: #c8102e;
+    --gold: #f1be48;
+    --ink: #1c2030;
+    --muted: #5b6478;
+    --bg: #fafbfd;
+    --card: #ffffff;
+    --line: #e6e8ee;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+  }
+  a { color: var(--cardinal); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: saturate(180%) blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav {
+    max-width: 1080px; margin: 0 auto;
+    padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo { font-weight: 800; color: var(--navy); letter-spacing: 0.5px; }
+  .logo span { color: var(--cardinal); }
+  nav ul { list-style: none; display: flex; gap: 22px; }
+  nav a { color: var(--ink); font-weight: 500; font-size: 14px; }
+  nav a:hover { color: var(--cardinal); text-decoration: none; }
+  @media (max-width: 600px) { nav ul { gap: 14px; font-size: 13px; } }
+
+  .hero {
+    background: linear-gradient(135deg, #0a1f44 0%, #1e3a8a 60%, #c8102e 130%);
+    color: #fff;
+    padding: 96px 24px 110px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(241,190,72,0.15), transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08), transparent 40%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; max-width: 760px; margin: 0 auto; }
+  .avatar {
+    width: 96px; height: 96px; border-radius: 50%;
+    background: #fff; color: var(--navy);
+    font-size: 36px; font-weight: 800;
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-bottom: 22px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  }
+  .hero h1 { font-size: clamp(34px, 6vw, 54px); font-weight: 800; letter-spacing: -0.5px; }
+  .hero .tag { color: var(--gold); font-weight: 700; letter-spacing: 1.5px; font-size: 13px; margin-top: 10px; text-transform: uppercase; }
+  .hero p.lede { margin-top: 18px; font-size: 17px; opacity: 0.92; }
+  .cta { margin-top: 28px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 20px; border-radius: 999px;
+    font-weight: 600; font-size: 14px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-primary { background: var(--gold); color: var(--navy); }
+  .btn-ghost { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+  .btn:hover { transform: translateY(-2px); text-decoration: none; box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+
+  section { padding: 72px 24px; }
+  .container { max-width: 1080px; margin: 0 auto; }
+  h2 {
+    font-size: 28px; color: var(--navy);
+    margin-bottom: 8px; letter-spacing: -0.3px;
+  }
+  .section-sub { color: var(--muted); margin-bottom: 32px; }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 36px;
+  }
+  @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; } }
+  .stat-card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 14px; padding: 22px;
+  }
+  .stat-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed var(--line); }
+  .stat-row:last-child { border-bottom: 0; }
+  .stat-row strong { color: var(--navy); }
+
+  .timeline { position: relative; margin-left: 12px; }
+  .timeline::before {
+    content: ""; position: absolute; left: 6px; top: 6px; bottom: 6px;
+    width: 2px; background: var(--line);
+  }
+  .item { position: relative; padding-left: 28px; padding-bottom: 26px; }
+  .item::before {
+    content: ""; position: absolute; left: 0; top: 8px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--cardinal); box-shadow: 0 0 0 4px rgba(200,16,46,0.15);
+  }
+  .item h3 { color: var(--navy); font-size: 17px; }
+  .item .meta { color: var(--muted); font-size: 13px; margin-bottom: 6px; }
+  .item p { font-size: 15px; }
+
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+  }
+  .proj {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 14px; padding: 22px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .proj:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(10,31,68,0.10); }
+  .proj h3 { color: var(--navy); font-size: 17px; margin-bottom: 8px; }
+  .tag-row { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    background: #eef1f7; color: var(--navy);
+    font-size: 11px; font-weight: 600; letter-spacing: 0.3px;
+    padding: 4px 10px; border-radius: 999px;
+  }
+
+  .skill-block { display: grid; grid-template-columns: 160px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .skill-block:last-child { border-bottom: 0; }
+  .skill-block strong { color: var(--navy); }
+  @media (max-width: 600px) { .skill-block { grid-template-columns: 1fr; gap: 4px; } }
+
+  .contact-band {
+    background: var(--navy); color: #fff;
+    padding: 64px 24px;
+    text-align: center;
+  }
+  .contact-band h2 { color: #fff; }
+  .contact-band p { opacity: 0.8; }
+  .contact-links { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .contact-links a {
+    background: rgba(255,255,255,0.1); color: #fff;
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 10px 18px; border-radius: 999px;
+    font-size: 14px; font-weight: 500;
+  }
+  .contact-links a:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); text-decoration: none; }
+
+  footer {
+    text-align: center; padding: 24px;
+    color: var(--muted); font-size: 13px;
+    background: #f0f2f7;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">Nathan <span>Durand</span></div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="avatar">ND</div>
+    <h1>Nathan Durand</h1>
+    <div class="tag">Mechanical Engineering &middot; Iowa State University</div>
+    <p class="lede">Aspiring engineer with hands-on experience across aerospace, large-scale construction, and surveying. Currently a Honeywell Aerospace intern; previously on a $500M+ Meta data-center project with Turner.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="NathanDurand.Resume.pdf" target="_blank" rel="noopener">View Resume</a>
+      <a class="btn btn-ghost" href="#contact">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <h2>About</h2>
+    <p class="section-sub">A quick snapshot.</p>
+    <div class="about-grid">
+      <div>
+        <p>I'm a Mechanical Engineering student at Iowa State University, graduating in May 2028. I love working at the intersection of design, manufacturing, and the field &mdash; whether that's CADing a part in Fusion 360, walking a job site, or flying a drone for a survey.</p>
+        <p style="margin-top:14px;">My internships have spanned aerospace (Honeywell), large-scale construction (Turner / Meta), and engineering &amp; surveying (TD2). I'm curious, fast to learn on the job, and I genuinely enjoy translating an idea into something built.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-row"><span>School</span><strong>Iowa State</strong></div>
+        <div class="stat-row"><span>Degree</span><strong>B.S. Mechanical Engineering</strong></div>
+        <div class="stat-row"><span>GPA</span><strong>3.53</strong></div>
+        <div class="stat-row"><span>Started</span><strong>August 2024</strong></div>
+        <div class="stat-row"><span>Graduating</span><strong>May 2028</strong></div>
+        <div class="stat-row"><span>Honors</span><strong>NSBE Honeywell IPP Scholar &middot; Dean's List</strong></div>
+        <div class="stat-row"><span>Location</span><strong>Ames, IA</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="container">
+    <h2>Experience</h2>
+    <p class="section-sub">Where I've been putting in the reps.</p>
+    <div class="timeline">
+      <div class="item">
+        <h3>Honeywell Aerospace &mdash; Aerospace Intern</h3>
+        <div class="meta">May 2026 &ndash; August 2026 &middot; Phoenix, AZ</div>
+        <ul style="margin-left:18px;">
+          <li>Rotational intern at the engines site, gaining cross-functional experience across the company.</li>
+          <li>Working in design, manufacturing, and supply chain.</li>
+          <li>Selected as an NSBE Honeywell IPP Scholar.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3>Turner (Meta) &mdash; Engineering Intern</h3>
+        <div class="meta">May 2025 &ndash; August 2025 &middot; Omaha, NE</div>
+        <ul style="margin-left:18px;">
+          <li>Oversaw daily operations for hundreds of trade workers on a $500M+ construction project, ensuring schedule compliance and resolving on-site challenges.</li>
+          <li>Collaborated with teams of superintendents and engineers to review plans, lead coordination meetings, and produce progress and safety reports.</li>
+          <li>Managed project documentation by creating Daily Construction Reports, preparing submittals, and drafting Requests for Information &mdash; ensuring accurate records, timely material approvals, and effective resolution of field conflicts.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3>TD2 Engineering &amp; Surveying &mdash; Engineering Intern</h3>
+        <div class="meta">September 2023 &ndash; August 2024 &middot; Omaha, NE</div>
+        <ul style="margin-left:18px;">
+          <li>Contributed significantly to project success by efficiently operating surveying equipment and working closely with engineering teams.</li>
+          <li>Given responsibility for overseeing my own projects and training new interns.</li>
+          <li>Earned FAA Part 107 drone pilot license and led a team conducting drone-based site surveys, improving land data accuracy and efficiency for development projects.</li>
+          <li>Performed materials testing on concrete and soil samples &mdash; analyzing strength, composition, and compliance with engineering specifications to support quality control and project reliability.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <h2>Projects</h2>
+    <p class="section-sub">Things I've designed, built, and learned from.</p>
+    <div class="projects">
+      <div class="proj">
+        <h3>3D-Printed Basketball Shoe</h3>
+        <p>Collaborated with Nike and Adidas engineers to design and 3D print a basketball shoe, prioritizing safety and efficiency. Used Fusion 360 to design the complex non-geometric shape and all of its fine details. Conducted an in-depth research study on materials suitable for the shoe &mdash; evaluating durability, flexibility, and performance to optimize comfort and functionality.</p>
+        <div class="tag-row">
+          <span class="tag">Fusion 360</span>
+          <span class="tag">3D Printing</span>
+          <span class="tag">Materials Research</span>
+          <span class="tag">Industry Mentorship</span>
+        </div>
+      </div>
+      <div class="proj">
+        <h3>Automatic Bowling Device for Kids with Special Needs</h3>
+        <p>Developed a 3D-printed, switch-activated device in Autodesk Inventor that enables individuals with motor impairments to bowl independently. Designed for and donated to a school for kids in wheelchairs with special needs. Gathered feedback from users and implemented design improvements to enhance usability, accessibility, and overall performance.</p>
+        <div class="tag-row">
+          <span class="tag">Autodesk Inventor</span>
+          <span class="tag">3D Printing</span>
+          <span class="tag">Accessibility</span>
+          <span class="tag">User Research</span>
+        </div>
+      </div>
+      <div class="proj">
+        <h3>Drone-Based Site Surveying</h3>
+        <p>Earned FAA Part 107 drone pilot license and led drone-based site surveys, gathering aerial imagery and topographic data that improved land data accuracy and turnaround time for development projects. Combined drone data with traditional surveying instruments to deliver detailed deliverables to engineers.</p>
+        <div class="tag-row">
+          <span class="tag">FAA Part 107</span>
+          <span class="tag">Drone Surveying</span>
+          <span class="tag">GIS</span>
+          <span class="tag">Topography</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="container">
+    <h2>Skills</h2>
+    <p class="section-sub">Tools I use day-to-day.</p>
+    <div class="skill-block"><strong>CAD &amp; Design</strong><span>Fusion 360, Autodesk Inventor, SolidWorks, AutoCAD, eDrawings</span></div>
+    <div class="skill-block"><strong>Manufacturing</strong><span>3D Printing (FDM), Materials Selection, Rapid Prototyping</span></div>
+    <div class="skill-block"><strong>Field &amp; Survey</strong><span>FAA Part 107 (Drone Pilot), Total Station, GPS Surveying, Materials Testing (concrete, soil)</span></div>
+    <div class="skill-block"><strong>Construction</strong><span>Daily Construction Reports, Submittals, RFIs, Schedule Tracking, Safety Reporting</span></div>
+    <div class="skill-block"><strong>Software</strong><span>Microsoft Office, Procore, Bluebeam, Python (intro), MATLAB (intro)</span></div>
+  </div>
+</section>
+
+<section id="contact" class="contact-band">
+  <div class="container">
+    <h2>Let's Connect</h2>
+    <p>Open to internships, project collaborations, and a good engineering conversation.</p>
+    <div class="contact-links">
+      <a href="mailto:ndurand639@gmail.com">ndurand639@gmail.com</a>
+      <a href="tel:+14023502886">(402) 350-2886</a>
+      <a href="https://www.linkedin.com/in/nathandurand1" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="NathanDurand.Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<footer>&copy; Nathan Durand &middot; Mechanical Engineering &middot; Iowa State University</footer>
+
+</body>
+</html>
