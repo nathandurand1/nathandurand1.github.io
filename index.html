@@ -62,12 +62,13 @@
   }
   .hero-inner { position: relative; max-width: 760px; margin: 0 auto; }
   .avatar {
-    width: 96px; height: 96px; border-radius: 50%;
+    width: 120px; height: 120px; border-radius: 50%;
     background: #fff; color: var(--navy);
     font-size: 36px; font-weight: 800;
     display: inline-flex; align-items: center; justify-content: center;
     margin-bottom: 22px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    object-fit: cover; border: 3px solid var(--gold);
   }
   .hero h1 { font-size: clamp(34px, 6vw, 54px); font-weight: 800; letter-spacing: -0.5px; }
   .hero .tag { color: var(--gold); font-weight: 700; letter-spacing: 1.5px; font-size: 13px; margin-top: 10px; text-transform: uppercase; }
@@ -184,10 +185,11 @@
 
 <section class="hero">
   <div class="hero-inner">
-    <div class="avatar">ND</div>
+    <img class="avatar" src="Image%20(3).jpeg" alt="Nathan Durand">
+
     <h1>Nathan Durand</h1>
     <div class="tag">Mechanical Engineering &middot; Iowa State University</div>
-    <p class="lede">Aspiring engineer with hands-on experience across aerospace, large-scale construction, and surveying. Currently a Honeywell Aerospace intern; previously on a $500M+ Meta data-center project with Turner.</p>
+    <p class="lede">Aspiring engineer with hands-on experience across aerospace, large-scale construction, and surveying. Currently a Honeywell Aerospace intern, interested in CAD, product design, and the integration of sports and engineering.</p>
     <div class="cta">
       <a class="btn btn-primary" href="NathanDurand.Resume.pdf" target="_blank" rel="noopener">View Resume</a>
       <a class="btn btn-ghost" href="#contact">Get in Touch</a>
@@ -229,6 +231,13 @@
           <li>Rotational intern at the engines site, gaining cross-functional experience across the company.</li>
           <li>Working in design, manufacturing, and supply chain.</li>
           <li>Selected as an NSBE Honeywell IPP Scholar.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3>Mann Made &mdash; Apparel Design Engineering Intern</h3>
+        <div class="meta">January 2026 &ndash; Present &middot; Omaha, NE / Hybrid</div>
+        <ul style="margin-left:18px;">
+          <li>Design sport and street-wear apparel for a clothing brand featured on New York Fashion Week.</li>
         </ul>
       </div>
       <div class="item">
@@ -309,11 +318,11 @@
       </div>
       <div class="proj">
         <h3>Millard West High School &mdash; STEM Academy</h3>
-        <p>Reference letter from Nathan's AP Physics 1 STEM teacher at Millard West, written for scholarship review. Speaks to his perseverance, character, and standout drive across two years of STEM Academy coursework.</p>
+        <p>Reference letter from Nathan's AP Physics 1 STEM teacher at Millard West. Speaks to his perseverance, character, and standout drive across two years of STEM Academy coursework.</p>
         <div class="tag-row">
           <span class="tag">STEM Academy</span>
           <span class="tag">AP Physics 1</span>
-          <span class="tag">Scholarship</span>
+          <span class="tag">Recommendation</span>
         </div>
         <p style="margin-top:14px;"><a class="btn btn-primary" href="Letter%20of%20recommendation(STEM%20Academy)%20(1).pdf" target="_blank" rel="noopener">View Letter (PDF)</a></p>
       </div>
