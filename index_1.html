@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nathan Durand &mdash; Mechanical Engineering</title>
+<meta name="description" content="Nathan Durand &mdash; Mechanical Engineering student at Iowa State University. Honeywell Aerospace intern. Project portfolio, experience, and contact.">
+<style>
+  :root {
+    --navy: #0a1f44;
+    --cardinal: #c8102e;
+    --gold: #f1be48;
+    --ink: #1c2030;
+    --muted: #5b6478;
+    --bg: #fafbfd;
+    --card: #ffffff;
+    --line: #e6e8ee;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+  }
+  a { color: var(--cardinal); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: saturate(180%) blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav {
+    max-width: 1080px; margin: 0 auto;
+    padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo { font-weight: 800; color: var(--navy); letter-spacing: 0.5px; }
+  .logo span { color: var(--cardinal); }
+  nav ul { list-style: none; display: flex; gap: 22px; }
+  nav a { color: var(--ink); font-weight: 500; font-size: 14px; }
+  nav a:hover { color: var(--cardinal); text-decoration: none; }
+  @media (max-width: 600px) { nav ul { gap: 14px; font-size: 13px; } }
+
+  .hero {
+    background: linear-gradient(135deg, #0a1f44 0%, #1e3a8a 60%, #c8102e 130%);
+    color: #fff;
+    padding: 96px 24px 110px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(241,190,72,0.15), transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08), transparent 40%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; max-width: 760px; margin: 0 auto; }
+  .avatar {
+    width: 120px; height: 120px; border-radius: 50%;
+    background: #fff;
+    display: inline-block; overflow: hidden;
+    margin-bottom: 22px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    border: 3px solid var(--gold);
+    vertical-align: middle;
+  }
+  .avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    transform: scale(1.25);
+    display: block;
+  }
+  .hero h1 { font-size: clamp(34px, 6vw, 54px); font-weight: 800; letter-spacing: -0.5px; }
+  .hero .tag { color: var(--cardinal); font-weight: 700; letter-spacing: 1.5px; font-size: 13px; margin-top: 10px; text-transform: uppercase; }
+  .hero p.lede { margin-top: 18px; font-size: 17px; opacity: 0.92; }
+  .cta { margin-top: 28px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 20px; border-radius: 999px;
+    font-weight: 600; font-size: 14px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-primary { background: var(--gold); color: var(--navy); }
+  .btn-ghost { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+  .btn:hover { transform: translateY(-2px); text-decoration: none; box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+
+  section { padding: 72px 24px; }
+  .container { max-width: 1080px; margin: 0 auto; }
+  h2 {
+    font-size: 28px; color: var(--navy);
+    margin-bottom: 8px; letter-spacing: -0.3px;
+  }
+  .section-sub { color: var(--muted); margin-bottom: 32px; }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 36px;
+  }
+  @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; } }
+  .stat-card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 14px; padding: 22px;
+  }
+  .stat-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed var(--line); }
+  .stat-row:last-child { border-bottom: 0; }
+  .stat-row strong { color: var(--navy); }
+
+  .timeline { position: relative; margin-left: 12px; }
+  .timeline::before {
+    content: ""; position: absolute; left: 6px; top: 6px; bottom: 6px;
+    width: 2px; background: var(--line);
+  }
+  .item { position: relative; padding-left: 28px; padding-bottom: 26px; }
+  .item::before {
+    content: ""; position: absolute; left: 0; top: 8px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--cardinal); box-shadow: 0 0 0 4px rgba(200,16,46,0.15);
+  }
+  .item h3 { color: var(--navy); font-size: 17px; }
+  .item .meta { color: var(--muted); font-size: 13px; margin-bottom: 6px; }
+  .item p { font-size: 15px; }
+
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+  }
+  .proj {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 14px; padding: 22px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .proj:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(10,31,68,0.10); }
+  .proj h3 { color: var(--navy); font-size: 17px; margin-bottom: 8px; }
+  .tag-row { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    background: #eef1f7; color: var(--navy);
+    font-size: 11px; font-weight: 600; letter-spacing: 0.3px;
+    padding: 4px 10px; border-radius: 999px;
+  }
+  .skill-block { display: grid; grid-template-columns: 160px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .skill-block:last-child { border-bottom: 0; }
+  .skill-block strong { color: var(--navy); }
+  @media (max-width: 600px) { .skill-block { grid-template-columns: 1fr; gap: 4px; } }
+
+  .contact-band {
+    background: var(--navy); color: #fff;
+    padding: 64px 24px;
+    text-align: center;
+  }
+  .contact-band h2 { color: #fff; }
+  .contact-band p { opacity: 0.8; }
+  .contact-links { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .contact-links a {
+    background: rgba(255,255,255,0.1); color: #fff;
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 10px 18px; border-radius: 999px;
+    font-size: 14px; font-weight: 500;
+  }
+  .contact-links a:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); text-decoration: none; }
+
+  footer {
+    text-align: center; padding: 24px;
+    color: var(--muted); font-size: 13px;
+    background: #f0f2f7;
+  }
+
+  .hero .lede{max-width:640px;margin-left:auto;margin-right:auto}
+  .featured{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .case{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:start;padding:44px 0;border-bottom:1px solid var(--line)}
+  .case:last-child{border-bottom:0}
+  .case.flip{grid-template-columns:1fr 1.1fr}
+  .case.flip .gallery{order:2}
+  @media(max-width:860px){.case,.case.flip{grid-template-columns:1fr}.case.flip .gallery{order:0}}
+  .kicker{color:var(--cardinal);font-weight:700;font-size:12px;letter-spacing:1.4px;text-transform:uppercase}
+  .case h3{font-size:24px;color:var(--navy);margin:6px 0 4px;letter-spacing:-.3px}
+  .case .when{color:var(--muted);font-size:13px;margin-bottom:12px}
+  .case p{font-size:15px;margin-bottom:10px}
+  .case ul{margin:6px 0 12px 18px;font-size:15px}
+  .case li{margin-bottom:4px}
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .gallery figure{margin:0;background:#f0f2f7;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .gallery figure.wide{grid-column:1/-1}
+  .gallery img{width:100%;height:100%;max-height:340px;object-fit:cover;display:block}
+  .gallery figure.wide img{max-height:300px}
+  .gallery figcaption{font-size:12px;color:var(--muted);padding:6px 10px;background:#fff;border-top:1px solid var(--line)}
+  .contain img{object-fit:contain;background:#fff}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">Nathan <span>Durand</span></div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#recommendations">Recommendations</a></li>
+      <li><a href="#involvement">Involvement</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="avatar"><img src="Image%20(3).jpeg" alt="Nathan Durand"></span>
+
+    <h1>Nathan Durand</h1>
+    <div class="tag">Mechanical Engineering &middot; Iowa State University</div>
+    <p class="lede">Mechanical engineering student who builds things. Here are four projects, from humanitarian design to 3D-printed footwear, and what I did on each.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#projects">See My Work</a>
+      <a class="btn btn-ghost" href="NathanDurand_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a class="btn btn-ghost" href="#contact">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="featured">
+  <div class="container">
+    <h2>Featured Projects</h2>
+    <p class="section-sub">Four things I designed, built, and learned from.</p>
+    <div class="case">
+  <div class="info"><div class="kicker">Humanitarian design</div><h3>Hand Crank Grain Mill</h3><div class="when">Jan. 2026 &ndash; May 2026 &middot; Iowa State University</div><p>A manually powered grain mill for off-grid rural communities in Nigeria, where roughly 40% of people lack reliable electricity and many millers still rely on slow stone grinding.</p>
+<ul><li>Targets: under $50 and under 15 lbs, sized to fit the end user's limited storage space.</li>
+<li>Validated with QFD, DFMEA, and three models (crank torque 66.61 lbf&middot;in; 376.99 rad/min; 3 lb/min milling rate).</li>
+<li>Built primarily from plywood because wood is available and repairable in rural Nigeria.</li>
+<li>Fabricated an 8-subassembly prototype with a table saw, miter saw, and drill press, then presented it at the Iowa State Design Expo.</li></ul><div class="tag-row"><span class="tag">SolidWorks</span><span class="tag">QFD</span><span class="tag">DFMEA</span><span class="tag">Prototyping</span><span class="tag">Fabrication</span></div></div>
+  <div class="gallery"><figure class="wide"><img src="images/mill-expo.jpg" alt="Presenting at the ISU Design Expo" loading="lazy"><figcaption>Presenting at the ISU Design Expo</figcaption></figure><figure class=""><img src="images/mill-front.jpg" alt="Hopper and crank" loading="lazy"><figcaption>Hopper and crank</figcaption></figure><figure class=""><img src="images/mill-drawer.jpg" alt="Collection drawer" loading="lazy"><figcaption>Collection drawer</figcaption></figure><figure class=""><img src="images/mill-build.jpg" alt="Machining parts in the shop" loading="lazy"><figcaption>Machining parts in the shop</figcaption></figure><figure class=""><img src="images/mill-hopper.jpg" alt="Inside the hopper" loading="lazy"><figcaption>Inside the hopper</figcaption></figure></div></div>
+    <div class="case flip">
+  <div class="info"><div class="kicker">Accessibility &middot; Human-centered design</div><h3>Assistive Bowling Device</h3><div class="when">Sep. 2023 &ndash; May 2024</div><p>A switch-activated mechanical device that lets people with motor impairments bowl independently. It was donated to a local special-needs school serving wheelchair-dependent children.</p>
+<ul><li>Modeled in Autodesk Inventor and 3D-printed.</li>
+<li>Gathered feedback from users and iterated on usability, accessibility, and performance.</li></ul><div class="tag-row"><span class="tag">Autodesk Inventor</span><span class="tag">3D Printing</span><span class="tag">Accessibility</span><span class="tag">User Research</span></div></div>
+  <div class="gallery"><figure class="wide"><img src="images/bowl-ramp.jpg" alt="Device mounted on the ramp" loading="lazy"><figcaption>Device mounted on the ramp</figcaption></figure><figure class=""><img src="images/bowl-device.jpg" alt="Release mechanism holding the ball" loading="lazy"><figcaption>Release mechanism holding the ball</figcaption></figure><figure class=""><img src="images/bowl-side.jpg" alt="Side view" loading="lazy"><figcaption>Side view</figcaption></figure><figure class=""><img src="images/bowl-cad.jpg" alt="Inventor model" loading="lazy"><figcaption>Inventor model</figcaption></figure><figure class=""><img src="images/bowl-cad2.jpg" alt="Housing detail" loading="lazy"><figcaption>Housing detail</figcaption></figure></div></div>
+    <div class="case">
+  <div class="info"><div class="kicker">Product design &middot; Additive manufacturing</div><h3>The Perfect Shoe: 3D-Printed Basketball Shoe</h3><div class="when">Design and 3D printing project</div><p>I designed a low-top basketball shoe from scratch, researching the design choices behind popular performance shoes, then modeled it in CAD and 3D-printed the parts. Footwear professionals from Nike and Adidas served as mentors.</p>
+<ul><li>Midsole and traction: studied drop-in midsoles for court feel and herringbone traction for grip with minimal dust pickup.</li>
+<li>Cushioning and energy return: full-length Zoom Strobel unit and a carbon fiber plate sewn in for ankle stability.</li>
+<li>Materials and comfort: Filon and TPU mesh for durability and light weight, with a sock-like collar and ankle padding.</li></ul><div class="tag-row"><span class="tag">CAD</span><span class="tag">3D Printing</span><span class="tag">Footwear Design</span><span class="tag">Materials Selection</span></div></div>
+  <div class="gallery"><figure class="wide contain"><img src="images/shoe-cad.jpg" alt="CAD render" loading="lazy"><figcaption>CAD render</figcaption></figure><figure class=""><img src="images/shoe-sketch.jpg" alt="Concept sketch" loading="lazy"><figcaption>Concept sketch</figcaption></figure><figure class="contain"><img src="images/shoe-exploded.jpg" alt="Exploded layer view" loading="lazy"><figcaption>Exploded layer view</figcaption></figure><figure class=""><img src="images/shoe-print-1.jpg" alt="Printed shoe" loading="lazy"><figcaption>Printed shoe</figcaption></figure><figure class=""><img src="images/shoe-parts.jpg" alt="Printed sole layers" loading="lazy"><figcaption>Printed sole layers</figcaption></figure><figure class=""><img src="images/shoe-printing.jpg" alt="Printing on the Ultimaker" loading="lazy"><figcaption>Printing on the Ultimaker</figcaption></figure></div></div>
+    <div class="case flip">
+  <div class="info"><div class="kicker">Product design &middot; CAD</div><h3>Hot Glue Gun</h3><div class="when">Mechanical design project</div><p>I modeled a hot glue gun in SolidWorks and produced dimensioned drawings of its parts, designed around a list of requirements for how it should work and feel.</p>
+<ul><li>Must heat the sticks, dispense from the tip, hold a stable temperature, and not drip.</li>
+<li>Should be lightweight, quick to load, easy to clean, and have a good grip.</li>
+<li>Includes a viewing window for the stick, plus non-slip feet so it doesn't tip.</li></ul><div class="tag-row"><span class="tag">SolidWorks</span><span class="tag">Engineering Drawings</span><span class="tag">Requirements</span></div></div>
+  <div class="gallery"><figure class=""><img src="images/glue-cad-1.jpg" alt="SolidWorks model" loading="lazy"><figcaption>SolidWorks model</figcaption></figure><figure class=""><img src="images/glue-cad-2.jpg" alt="Model with nozzle and trigger" loading="lazy"><figcaption>Model with nozzle and trigger</figcaption></figure><figure class="contain"><img src="images/glue-drawing-trigger.jpg" alt="Trigger drawing" loading="lazy"><figcaption>Trigger drawing</figcaption></figure><figure class="contain"><img src="images/glue-drawing-nozzle.jpg" alt="Nozzle drawing" loading="lazy"><figcaption>Nozzle drawing</figcaption></figure><figure class="wide contain"><img src="images/glue-drawing-core.jpg" alt="Heating element part drawing" loading="lazy"><figcaption>Heating element part drawing</figcaption></figure></div></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <h2>About</h2>
+    <p class="section-sub">A quick snapshot.</p>
+    <div class="about-grid">
+      <div>
+        <p>I'm a Mechanical Engineering student at Iowa State University, graduating in May 2028. I love working at the intersection of design, manufacturing, and the field &mdash; whether that's CADing a part in SolidWorks, running a failure analysis, walking a job site, or flying a drone for a survey.</p>
+        <p style="margin-top:14px;">My internships have spanned aerospace (Honeywell), large-scale data center construction (Turner / Meta), and engineering &amp; surveying (TD2). I'm curious, fast to learn on the job, and I genuinely enjoy translating an idea into something built.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-row"><span>School</span><strong>Iowa State</strong></div>
+        <div class="stat-row"><span>Degree</span><strong>B.S. Mechanical Engineering</strong></div>
+        <div class="stat-row"><span>GPA</span><strong>3.53</strong></div>
+        <div class="stat-row"><span>Started</span><strong>August 2024</strong></div>
+        <div class="stat-row"><span>Graduating</span><strong>May 2028</strong></div>
+        <div class="stat-row"><span>Honors</span><strong>Dean's List &middot; NSBE Honeywell IPP Scholar &middot; UNCF ETOP Scholar</strong></div>
+        <div class="stat-row"><span>Location</span><strong>Ames, IA</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="container">
+    <h2>Experience</h2>
+    <p class="section-sub">Where I've been putting in the reps.</p>
+    <div class="timeline">
+      <div class="item">
+        <h3>Honeywell Aerospace Technologies &mdash; Aerospace Engineering Intern</h3>
+        <div class="meta">May 2026 &ndash; August 2026 &middot; Phoenix, AZ</div>
+        <ul style="margin-left:18px;">
+          <li>Conducted R&amp;D testing and failure analysis on engines and other aerospace hardware in a high-altitude cold chamber simulating flight conditions; performed root-cause investigations to enhance design reliability and safety compliance.</li>
+          <li>Applied Lean Six Sigma methodologies to F-35, F-16, and F-15 propulsion component production lines through cross-functional collaboration, identifying bottlenecks and improving manufacturing throughput.</li>
+          <li>Optimized supply chain performance for Airbus A320 and Boeing 737 platforms via proactive capacity analysis and direct process-improvement initiatives with external suppliers.</li>
+          <li>Developed engineering proposals for space-based data center architectures; evaluated integration of Control Moment Gyroscopes (CMG) for spacecraft attitude control to maximize solar power capture and optical laser communication alignment.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3>Turner Construction Company (Meta) &mdash; Engineering Intern</h3>
+        <div class="meta">May 2025 &ndash; August 2025 &middot; Omaha, NE</div>
+        <ul style="margin-left:18px;">
+          <li>Coordinated daily operations for 200+ trade workers on a $500M+ data center construction project, ensuring schedule compliance and resolving on-site engineering challenges in real time.</li>
+          <li>Reviewed engineering drawings, led multidisciplinary coordination meetings, and authored weekly progress and safety reports for project management and ownership teams.</li>
+          <li>Worked in the mechanical yard overseeing installation and coordination of HVAC and water cooling systems, supporting the mechanical infrastructure for a hyperscale data center facility.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3>TD2 Engineering &amp; Surveying &mdash; Engineering Intern</h3>
+        <div class="meta">September 2023 &ndash; August 2024 &middot; Omaha, NE</div>
+        <ul style="margin-left:18px;">
+          <li>Earned FAA Part 107 Unmanned Aircraft Systems (UAS) pilot certification; led UAV-based aerial site surveys that improved land data accuracy and efficiency for civil development projects.</li>
+          <li>Performed ASTM-compliant materials testing on concrete and soil specimens, analyzing compressive strength, composition, and structural integrity to support quality control and project reliability.</li>
+          <li>Managed independent project assignments and mentored incoming interns on field procedures, data collection, and engineering documentation standards.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="recommendations" style="background:#fff; border-top:1px solid var(--line);">
+  <div class="container">
+    <h2>Letters of Recommendation</h2>
+    <p class="section-sub">What people I've worked with have to say.</p>
+    <div class="projects">
+      <div class="proj">
+        <h3>Thompson Dreessen &amp; Dorner (TD2 Engineering)</h3>
+        <p>Reference letter from Nathan's summer 2024 civil engineering internship at TD2 in Omaha, NE. Highlights drone licensure, concrete &amp; soils testing, and his work in the Erosion Control and Geotechnical Exploration departments.</p>
+        <div class="tag-row">
+          <span class="tag">Civil Engineering Internship</span>
+          <span class="tag">Drone Pilot</span>
+          <span class="tag">Materials Testing</span>
+        </div>
+        <p style="margin-top:14px;"><a class="btn btn-primary" href="Nathan%20Durand%20-%20Ltr%20of%20Recommendation%20(1)%20(1).pdf" target="_blank" rel="noopener">View Letter (PDF)</a></p>
+      </div>
+      <div class="proj">
+        <h3>Millard West High School &mdash; STEM Academy</h3>
+        <p>Reference letter from Nathan's AP Physics 1 STEM teacher at Millard West. Speaks to his perseverance, character, and standout drive across two years of STEM Academy coursework.</p>
+        <div class="tag-row">
+          <span class="tag">STEM Academy</span>
+          <span class="tag">AP Physics 1</span>
+          <span class="tag">Recommendation</span>
+        </div>
+        <p style="margin-top:14px;"><a class="btn btn-primary" href="Letter%20of%20recommendation(STEM%20Academy)%20(1).pdf" target="_blank" rel="noopener">View Letter (PDF)</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="involvement" style="border-top:1px solid var(--line);">
+  <div class="container">
+    <h2>Involvement &amp; Leadership</h2>
+    <p class="section-sub">Communities I'm part of and ways I give back.</p>
+    <div class="projects">
+      <div class="proj" style="grid-column: 1 / -1;">
+        <h3>National Society of Black Engineers (NSBE)</h3>
+        <p><strong>Honeywell IPP Scholar.</strong> Awarded one of NSBE's most competitive scholarships, the Honeywell Integrated Pipeline Program (IPP) Scholarship. The program pairs each scholar with a Honeywell engineer mentor for monthly meetings focused on building the skills and mindset needed to thrive as an engineer entering the workforce.</p>
+        <p style="margin-top:10px;"><strong>NSBE National Convention &mdash; Baltimore.</strong> Recently flown out to the NSBE National Convention in Baltimore, where I participated in professional development workshops, career fairs, and networking with engineers and recruiters from across the country.</p>
+        <p style="margin-top:10px;"><strong>Academic Excellence Chair &mdash; Iowa State University Chapter.</strong> Lead the chapter's academic support program: tracking members' GPAs to make sure everyone stays in good academic standing, hosting study events, and mentoring younger students with study tips and class advice.</p>
+        <div class="tag-row">
+          <span class="tag">Honeywell IPP Scholar</span>
+          <span class="tag">NSBE National Convention</span>
+          <span class="tag">Academic Excellence Chair</span>
+          <span class="tag">Mentorship</span>
+        </div>
+      </div>
+      <div class="proj">
+        <h3>Other Involvements</h3>
+        <ul style="margin:8px 0 0 20px; line-height:1.7;">
+          <li>UNCF ETOP Scholar</li>
+          <li>HJJ Athletic Excellence Scholarship &mdash; Board Member</li>
+          <li>SolidWorks Club</li>
+          <li>Special Olympics Volunteer</li>
+          <li>Intramural Sports</li>
+          <li>Campus Tour Guide</li>
+          <li>Emerging Leaders in Engineering</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="container">
+    <h2>Skills</h2>
+    <p class="section-sub">Tools I use day-to-day.</p>
+    <div class="skill-block"><strong>Software / CAD</strong><span>SolidWorks, Fusion 360, Autodesk Inventor, MATLAB, Python, Revit, Excel</span></div>
+    <div class="skill-block"><strong>Engineering</strong><span>Failure Analysis, Stress Testing, Root-Cause Analysis, Materials Testing, Lean Six Sigma</span></div>
+    <div class="skill-block"><strong>Manufacturing</strong><span>Additive Manufacturing (3D Printing), Prototyping &amp; Fabrication</span></div>
+    <div class="skill-block"><strong>Field &amp; Survey</strong><span>UAV/Drone Operations, GEO Mapping</span></div>
+    <div class="skill-block"><strong>Certifications</strong><span>FAA Part 107 Unmanned Aircraft Systems (UAS) Pilot License, OSHA 10 General Industry</span></div>
+  
+</div>
+</section>
+
+<section id="contact" class="contact-band">
+  <div class="container">
+    <h2>Get in Touch</h2>
+    <p>Open to internship and full-time conversations. The fastest way to reach me is email or LinkedIn.</p>
+    <div class="contact-links">
+      <a href="mailto:ndurand639@gmail.com">ndurand639@gmail.com</a>
+      <a href="tel:+14023502886">(402) 350-2886</a>
+      <a href="https://www.linkedin.com/in/nathandurand1" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="NathanDurand_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<footer>&copy; Nathan Durand &middot; Mechanical Engineering &middot; Iowa State University</footer>
+
+</body>
+</html>
