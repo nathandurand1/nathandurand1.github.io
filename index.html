@@ -171,6 +171,27 @@
     color: var(--muted); font-size: 13px;
     background: #f0f2f7;
   }
+
+  .hero .lede{max-width:640px;margin-left:auto;margin-right:auto}
+  .featured{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .case{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:start;padding:44px 0;border-bottom:1px solid var(--line)}
+  .case:last-child{border-bottom:0}
+  .case.flip{grid-template-columns:1fr 1.1fr}
+  .case.flip .gallery{order:2}
+  @media(max-width:860px){.case,.case.flip{grid-template-columns:1fr}.case.flip .gallery{order:0}}
+  .kicker{color:var(--cardinal);font-weight:700;font-size:12px;letter-spacing:1.4px;text-transform:uppercase}
+  .case h3{font-size:24px;color:var(--navy);margin:6px 0 4px;letter-spacing:-.3px}
+  .case .when{color:var(--muted);font-size:13px;margin-bottom:12px}
+  .case p{font-size:15px;margin-bottom:10px}
+  .case ul{margin:6px 0 12px 18px;font-size:15px}
+  .case li{margin-bottom:4px}
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .gallery figure{margin:0;background:#f0f2f7;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .gallery figure.wide{grid-column:1/-1}
+  .gallery img{width:100%;height:100%;max-height:340px;object-fit:cover;display:block}
+  .gallery figure.wide img{max-height:300px}
+  .gallery figcaption{font-size:12px;color:var(--muted);padding:6px 10px;background:#fff;border-top:1px solid var(--line)}
+  .contain img{object-fit:contain;background:#fff}
 </style>
 </head>
 <body>
@@ -180,8 +201,8 @@
     <div class="logo">Nathan <span>Durand</span></div>
     <ul>
       <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#recommendations">Recommendations</a></li>
       <li><a href="#involvement">Involvement</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -195,11 +216,43 @@
 
     <h1>Nathan Durand</h1>
     <div class="tag">Mechanical Engineering &middot; Iowa State University</div>
-    <p class="lede">Aspiring engineer with hands-on experience across aerospace, large-scale construction, and surveying. Most recently an Aerospace Engineering Intern at Honeywell Aerospace, interested in aerospace hardware, CAD, product design, and human-centered engineering.</p>
+    <p class="lede">Mechanical engineering student who builds things. Here are four projects, from humanitarian design to 3D-printed footwear, and what I did on each.</p>
     <div class="cta">
-      <a class="btn btn-primary" href="NathanDurand_Resume.pdf" target="_blank" rel="noopener">View Resume</a>
+      <a class="btn btn-primary" href="#projects">See My Work</a>
+      <a class="btn btn-ghost" href="NathanDurand_Resume.pdf" target="_blank" rel="noopener">Resume</a>
       <a class="btn btn-ghost" href="#contact">Get in Touch</a>
     </div>
+  </div>
+</section>
+
+<section id="projects" class="featured">
+  <div class="container">
+    <h2>Featured Projects</h2>
+    <p class="section-sub">Four things I designed, built, and learned from.</p>
+    <div class="case">
+  <div class="info"><div class="kicker">Humanitarian design</div><h3>Hand Crank Grain Mill</h3><div class="when">Jan. 2026 &ndash; May 2026 &middot; Iowa State University</div><p>A manually powered grain mill for off-grid rural communities in Nigeria, where roughly 40% of people lack reliable electricity and many millers still rely on slow stone grinding.</p>
+<ul><li>Targets: under $50 and under 15 lbs, sized to fit the end user's limited storage space.</li>
+<li>Validated with QFD, DFMEA, and three models (crank torque 66.61 lbf&middot;in; 376.99 rad/min; 3 lb/min milling rate).</li>
+<li>Built primarily from plywood because wood is available and repairable in rural Nigeria.</li>
+<li>Fabricated an 8-subassembly prototype with a table saw, miter saw, and drill press, then presented it at the Iowa State Design Expo.</li></ul><div class="tag-row"><span class="tag">SolidWorks</span><span class="tag">QFD</span><span class="tag">DFMEA</span><span class="tag">Prototyping</span><span class="tag">Fabrication</span></div></div>
+  <div class="gallery"><figure class="wide"><img src="images/mill-expo.jpg" alt="Presenting at the ISU Design Expo" loading="lazy"><figcaption>Presenting at the ISU Design Expo</figcaption></figure><figure class=""><img src="images/mill-front.jpg" alt="Hopper and crank" loading="lazy"><figcaption>Hopper and crank</figcaption></figure><figure class=""><img src="images/mill-drawer.jpg" alt="Collection drawer" loading="lazy"><figcaption>Collection drawer</figcaption></figure><figure class=""><img src="images/mill-build.jpg" alt="Machining parts in the shop" loading="lazy"><figcaption>Machining parts in the shop</figcaption></figure><figure class=""><img src="images/mill-hopper.jpg" alt="Inside the hopper" loading="lazy"><figcaption>Inside the hopper</figcaption></figure></div></div>
+    <div class="case flip">
+  <div class="info"><div class="kicker">Accessibility &middot; Human-centered design</div><h3>Assistive Bowling Device</h3><div class="when">Sep. 2023 &ndash; May 2024</div><p>A switch-activated mechanical device that lets people with motor impairments bowl independently. It was donated to a local special-needs school serving wheelchair-dependent children.</p>
+<ul><li>Modeled in Autodesk Inventor and 3D-printed.</li>
+<li>Gathered feedback from users and iterated on usability, accessibility, and performance.</li></ul><div class="tag-row"><span class="tag">Autodesk Inventor</span><span class="tag">3D Printing</span><span class="tag">Accessibility</span><span class="tag">User Research</span></div></div>
+  <div class="gallery"><figure class="wide"><img src="images/bowl-ramp.jpg" alt="Device mounted on the ramp" loading="lazy"><figcaption>Device mounted on the ramp</figcaption></figure><figure class=""><img src="images/bowl-device.jpg" alt="Release mechanism holding the ball" loading="lazy"><figcaption>Release mechanism holding the ball</figcaption></figure><figure class=""><img src="images/bowl-side.jpg" alt="Side view" loading="lazy"><figcaption>Side view</figcaption></figure><figure class=""><img src="images/bowl-cad.jpg" alt="Inventor model" loading="lazy"><figcaption>Inventor model</figcaption></figure><figure class=""><img src="images/bowl-cad2.jpg" alt="Housing detail" loading="lazy"><figcaption>Housing detail</figcaption></figure></div></div>
+    <div class="case">
+  <div class="info"><div class="kicker">Product design &middot; Additive manufacturing</div><h3>The Perfect Shoe: 3D-Printed Basketball Shoe</h3><div class="when">Design and 3D printing project</div><p>I designed a low-top basketball shoe from scratch, researching the design choices behind popular performance shoes, then modeled it in CAD and 3D-printed the parts. Footwear professionals from Nike and Adidas served as mentors.</p>
+<ul><li>Midsole and traction: studied drop-in midsoles for court feel and herringbone traction for grip with minimal dust pickup.</li>
+<li>Cushioning and energy return: full-length Zoom Strobel unit and a carbon fiber plate sewn in for ankle stability.</li>
+<li>Materials and comfort: Filon and TPU mesh for durability and light weight, with a sock-like collar and ankle padding.</li></ul><div class="tag-row"><span class="tag">CAD</span><span class="tag">3D Printing</span><span class="tag">Footwear Design</span><span class="tag">Materials Selection</span></div></div>
+  <div class="gallery"><figure class="wide contain"><img src="images/shoe-cad.jpg" alt="CAD render" loading="lazy"><figcaption>CAD render</figcaption></figure><figure class=""><img src="images/shoe-sketch.jpg" alt="Concept sketch" loading="lazy"><figcaption>Concept sketch</figcaption></figure><figure class="contain"><img src="images/shoe-exploded.jpg" alt="Exploded layer view" loading="lazy"><figcaption>Exploded layer view</figcaption></figure><figure class=""><img src="images/shoe-print-1.jpg" alt="Printed shoe" loading="lazy"><figcaption>Printed shoe</figcaption></figure><figure class=""><img src="images/shoe-parts.jpg" alt="Printed sole layers" loading="lazy"><figcaption>Printed sole layers</figcaption></figure><figure class=""><img src="images/shoe-printing.jpg" alt="Printing on the Ultimaker" loading="lazy"><figcaption>Printing on the Ultimaker</figcaption></figure></div></div>
+    <div class="case flip">
+  <div class="info"><div class="kicker">Product design &middot; CAD</div><h3>Hot Glue Gun</h3><div class="when">Mechanical design project</div><p>I modeled a hot glue gun in SolidWorks and produced dimensioned drawings of its parts, designed around a list of requirements for how it should work and feel.</p>
+<ul><li>Must heat the sticks, dispense from the tip, hold a stable temperature, and not drip.</li>
+<li>Should be lightweight, quick to load, easy to clean, and have a good grip.</li>
+<li>Includes a viewing window for the stick, plus non-slip feet so it doesn't tip.</li></ul><div class="tag-row"><span class="tag">SolidWorks</span><span class="tag">Engineering Drawings</span><span class="tag">Requirements</span></div></div>
+  <div class="gallery"><figure class=""><img src="images/glue-cad-1.jpg" alt="SolidWorks model" loading="lazy"><figcaption>SolidWorks model</figcaption></figure><figure class=""><img src="images/glue-cad-2.jpg" alt="Model with nozzle and trigger" loading="lazy"><figcaption>Model with nozzle and trigger</figcaption></figure><figure class="contain"><img src="images/glue-drawing-trigger.jpg" alt="Trigger drawing" loading="lazy"><figcaption>Trigger drawing</figcaption></figure><figure class="contain"><img src="images/glue-drawing-nozzle.jpg" alt="Nozzle drawing" loading="lazy"><figcaption>Nozzle drawing</figcaption></figure><figure class="wide contain"><img src="images/glue-drawing-core.jpg" alt="Heating element part drawing" loading="lazy"><figcaption>Heating element part drawing</figcaption></figure></div></div>
   </div>
 </section>
 
@@ -209,8 +262,8 @@
     <p class="section-sub">A quick snapshot.</p>
     <div class="about-grid">
       <div>
-        <p>I'm a Mechanical Engineering student at Iowa State University, graduating in May 2028. I love working at the intersection of design, manufacturing, and the field &mdash; whether that's CADing a part in Fusion 360, walking a job site, or flying a drone for a survey.</p>
-        <p style="margin-top:14px;">My internships have spanned aerospace (Honeywell), large-scale construction (Turner / Meta), and engineering &amp; surveying (TD2). I'm curious, fast to learn on the job, and I genuinely enjoy translating an idea into something built.</p>
+        <p>I'm a Mechanical Engineering student at Iowa State University, graduating in May 2028. I love working at the intersection of design, manufacturing, and the field &mdash; whether that's CADing a part in SolidWorks, running a failure analysis, walking a job site, or flying a drone for a survey.</p>
+        <p style="margin-top:14px;">My internships have spanned aerospace (Honeywell), large-scale data center construction (Turner / Meta), and engineering &amp; surveying (TD2). I'm curious, fast to learn on the job, and I genuinely enjoy translating an idea into something built.</p>
       </div>
       <div class="stat-card">
         <div class="stat-row"><span>School</span><strong>Iowa State</strong></div>
@@ -231,17 +284,17 @@
     <p class="section-sub">Where I've been putting in the reps.</p>
     <div class="timeline">
       <div class="item">
-        <h3>Honeywell Aerospace &mdash; Aerospace Engineering Intern</h3>
+        <h3>Honeywell Aerospace Technologies &mdash; Aerospace Engineering Intern</h3>
         <div class="meta">May 2026 &ndash; August 2026 &middot; Phoenix, AZ</div>
         <ul style="margin-left:18px;">
           <li>Conducted R&amp;D testing and failure analysis on engines and other aerospace hardware in a high-altitude cold chamber simulating flight conditions; performed root-cause investigations to enhance design reliability and safety compliance.</li>
-          <li>Applied Lean Six Sigma methodologies to F-35, F-16, and F-15 component production lines through cross-functional collaboration, identifying bottlenecks and improving manufacturing throughput.</li>
+          <li>Applied Lean Six Sigma methodologies to F-35, F-16, and F-15 propulsion component production lines through cross-functional collaboration, identifying bottlenecks and improving manufacturing throughput.</li>
           <li>Optimized supply chain performance for Airbus A320 and Boeing 737 platforms via proactive capacity analysis and direct process-improvement initiatives with external suppliers.</li>
           <li>Developed engineering proposals for space-based data center architectures; evaluated integration of Control Moment Gyroscopes (CMG) for spacecraft attitude control to maximize solar power capture and optical laser communication alignment.</li>
         </ul>
       </div>
       <div class="item">
-        <h3>Turner Construction (Meta) &mdash; Engineering Intern</h3>
+        <h3>Turner Construction Company (Meta) &mdash; Engineering Intern</h3>
         <div class="meta">May 2025 &ndash; August 2025 &middot; Omaha, NE</div>
         <ul style="margin-left:18px;">
           <li>Coordinated daily operations for 200+ trade workers on a $500M+ data center construction project, ensuring schedule compliance and resolving on-site engineering challenges in real time.</li>
@@ -257,54 +310,6 @@
           <li>Performed ASTM-compliant materials testing on concrete and soil specimens, analyzing compressive strength, composition, and structural integrity to support quality control and project reliability.</li>
           <li>Managed independent project assignments and mentored incoming interns on field procedures, data collection, and engineering documentation standards.</li>
         </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="projects">
-  <div class="container">
-    <h2>Projects</h2>
-    <p class="section-sub">Things I've designed, built, and learned from.</p>
-    <div class="projects">
-      <div class="proj">
-        <h3>Hand Crank Grain Mill &mdash; Off-Grid Humanitarian Design</h3>
-        <p>Designed a manually powered grain mill for off-grid rural communities in Nigeria, targeting under $50 and 15 lbs. Validated the design through QFD, DFMEA, and three engineering models (crank torque: 66.61 lbf&middot;in; 376.99 rad/min; 3 lb/min milling rate). Fabricated an 8-subassembly plywood prototype from initial sketch using a table saw, miter saw, and drill press, and presented it at the Iowa State University Design Expo.</p>
-        <div class="tag-row">
-          <span class="tag">SolidWorks</span>
-          <span class="tag">QFD</span>
-          <span class="tag">DFMEA</span>
-          <span class="tag">Prototyping</span>
-        </div>
-      </div>
-      <div class="proj">
-        <h3>3D-Printed Basketball Shoe</h3>
-        <p>Capstone project: collaborated with Nike and Adidas engineers to design and 3D print a basketball shoe, prioritizing safety and efficiency. Used Fusion 360 to design the complex non-geometric shape and all of its fine details. Conducted an in-depth research study on materials suitable for the shoe &mdash; evaluating durability, flexibility, and performance to optimize comfort and functionality.</p>
-        <div class="tag-row">
-          <span class="tag">Fusion 360</span>
-          <span class="tag">3D Printing</span>
-          <span class="tag">Materials Research</span>
-          <span class="tag">Industry Mentorship</span>
-        </div>
-      </div>
-      <div class="proj">
-        <h3>Assistive Bowling Device for Children with Special Needs</h3>
-        <p>Designed and 3D-printed a switch-activated bowling launcher in Autodesk Inventor that enables individuals with motor impairments to bowl independently. Built for and donated to JP Lord School in Omaha, NE. Gathered feedback from users and iterated on the design to improve usability, accessibility, and overall performance.</p>
-        <div class="tag-row">
-          <span class="tag">Autodesk Inventor</span>
-          <span class="tag">3D Printing</span>
-          <span class="tag">Accessibility</span>
-          <span class="tag">User Research</span>
-        </div>
-      </div>
-      <div class="proj">
-        <h3>Drone-Based Site Surveying</h3>
-        <p>Earned FAA Part 107 drone pilot license and led drone-based site surveys, gathering aerial imagery and topographic data that improved land data accuracy and turnaround time for development projects. Combined drone data with traditional surveying instruments to deliver detailed deliverables to engineers.</p>
-        <div class="tag-row">
-          <span class="tag">FAA Part 107</span>
-          <span class="tag">Drone Surveying</span>
-          <span class="tag">Topographic Mapping</span>
-        </div>
       </div>
     </div>
   </div>
@@ -359,6 +364,7 @@
       <div class="proj">
         <h3>Other Involvements</h3>
         <ul style="margin:8px 0 0 20px; line-height:1.7;">
+          <li>UNCF ETOP Scholar</li>
           <li>HJJ Athletic Excellence Scholarship &mdash; Board Member</li>
           <li>SolidWorks Club</li>
           <li>Special Olympics Volunteer</li>
@@ -375,14 +381,13 @@
   <div class="container">
     <h2>Skills</h2>
     <p class="section-sub">Tools I use day-to-day.</p>
-    <div class="skill-block"><strong>CAD &amp; Design</strong><span>SolidWorks, Fusion 360, Autodesk Inventor, AutoCAD, Revit, eDrawings</span></div>
-    <div class="skill-block"><strong>Manufacturing</strong><span>Additive Manufacturing (3D Printing), Lean Six Sigma, Rapid Prototyping, Materials Selection</span></div>
-    <div class="skill-block"><strong>Analysis &amp; Testing</strong><span>Failure Analysis, Root-Cause Analysis, Stress Testing, Materials Testing</span></div>
-    <div class="skill-block"><strong>Field &amp; Survey</strong><span>FAA Part 107 (UAV/Drone Operations), GEO Mapping, Total Station, GPS Surveying</span></div>
-    <div class="skill-block"><strong>Construction</strong><span>Daily Construction Reports, Submittals, RFIs, Schedule Tracking, Safety Reporting</span></div>
-    <div class="skill-block"><strong>Programming &amp; Tools</strong><span>Python, MATLAB, Excel, Bluebeam, Microsoft Office, Autodesk Construction Cloud</span></div>
-    <div class="skill-block"><strong>Certifications</strong><span>FAA Part 107 Unmanned Aircraft Systems (UAS) Pilot License, OSHA 10</span></div>
-  </div>
+    <div class="skill-block"><strong>Software / CAD</strong><span>SolidWorks, Fusion 360, Autodesk Inventor, MATLAB, Python, Revit, Excel</span></div>
+    <div class="skill-block"><strong>Engineering</strong><span>Failure Analysis, Stress Testing, Root-Cause Analysis, Materials Testing, Lean Six Sigma</span></div>
+    <div class="skill-block"><strong>Manufacturing</strong><span>Additive Manufacturing (3D Printing), Prototyping &amp; Fabrication</span></div>
+    <div class="skill-block"><strong>Field &amp; Survey</strong><span>UAV/Drone Operations, GEO Mapping</span></div>
+    <div class="skill-block"><strong>Certifications</strong><span>FAA Part 107 Unmanned Aircraft Systems (UAS) Pilot License, OSHA 10 General Industry</span></div>
+  
+</div>
 </section>
 
 <section id="contact" class="contact-band">
